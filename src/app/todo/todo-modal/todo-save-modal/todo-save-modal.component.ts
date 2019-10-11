@@ -20,7 +20,7 @@ export class TodoSaveModalComponent implements OnInit {
   users: User[];
 
   name: string;
-  description: string;
+  lastname: string;
   status: string;
   owner: number;
 
@@ -32,7 +32,7 @@ export class TodoSaveModalComponent implements OnInit {
 
     if (this.pinsa_todo) {
       this.name = this.pinsa_todo.name;
-      this.description = this.pinsa_todo.description;
+      this.lastname = this.pinsa_todo.lastname;
       this.status = this.pinsa_todo.status;
       this.owner = this.pinsa_todo.owner.id;
     }
@@ -56,20 +56,26 @@ export class TodoSaveModalComponent implements OnInit {
     }
     if (this.pinsa_todo) {
       todo_id = this.pinsa_todo.id;
-      console.log("if");
+      this.todo_service.updateTodo({
+        id: todo_id,
+        name: todo.name,
+        lastname: todo.lastname,
+        status: todo.status,
+        owner: todo_owner
+      });
     } else {
       todo_id = this.todo_service.getTodos().length + 1;
-      console.log("ekse");
+      this.todo_service.saveTodo({
+        id: todo_id,
+        name: todo.name,
+        lastname: todo.lastname,
+        status: todo.status,
+        owner: todo_owner
+      });
     }
-    this.todo_service.deleteTodos(todo_id);
+  
 
-    this.todo_service.saveTodo({
-      id: todo_id,
-      name: todo.name,
-      description: todo.description,
-      status: todo.status,
-      owner: todo_owner
-    });
+    
     this.act_modal.close();
   }
 }

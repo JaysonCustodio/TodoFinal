@@ -16,15 +16,15 @@ export class UserService {
     {
       id: 1,
       firstname: "Joshua",
-      description: "Rosales",
+      lastname: "Rosales",
       occupation: "Artist",
       profilepic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-6vsbrYXPJGwQnrqfzGMFYDBMxVYLgc1WJf8Rgl9FCU1qsIT7&s"
     },
     {
       id: 2,
       firstname: "Jayson",
-      description: "Custodio",
+      lastname: "Custodio",
       occupation: "Dev",
       profilepic:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
@@ -32,31 +32,31 @@ export class UserService {
     {
       id: 3,
       firstname: "Jordan",
-      description: "Padigos",
+      lastname: "Padigos",
       occupation: "Paintor",
       profilepic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAOYw-tmZzTtvfQH9G1pUtUtAk2OpL6nJGrMWn3JpMLgdyr-ljgQ&s"
     },
     {
       id: 4,
       firstname: "Aladin",
-      description: "jeanny",
+      lastname: "jeanny",
       occupation: "Magician",
       profilepic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVNd6nFFR_qVru0Htt8Cfc7YZB-7ycXizMwWtVOYGBBlkIskBDOw&s"
     },
     {
       id: 5,
       firstname: "Jeffry",
-      description: "Nazareno",
+      lastname: "Nazareno",
       occupation: "Ceo",
       profilepic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpD7_INc6v0OT7pjta16z7V03XA7Pzi3ZcnulB2ZRQEADCNiHsHA&s"
     },
     {
       id: 6,
       firstname: "Jacob",
-      description: "Blast",
+      lastname: "Blast",
       occupation: "Wolfighter",
       profilepic:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
@@ -64,15 +64,15 @@ export class UserService {
     {
       id: 7,
       firstname: "Asta",
-      description: "Clover",
+      lastname: "Clover",
       occupation: "Wizard King",
       profilepic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKUHKkOdCvia4QhWpC6oLmdcDn6rLI1t8R2C8rHV9KJ_S3n4fo6Q&s"
     },
     {
       id: 8,
       firstname: "Roger",
-      description: "Windchester",
+      lastname: "Windchester",
       occupation: "Hunter",
       profilepic:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
@@ -80,7 +80,7 @@ export class UserService {
     {
       id: 9,
       firstname: "Adrian",
-      description: "Sumagang",
+      lastname: "Sumagang",
       occupation: "Fullstock",
       profilepic:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT56NxFEk1KPm27o3mwlKiNSFKL4g1OZ-ES_vLmDiF7Wi6oTGQcVw"
@@ -111,5 +111,15 @@ export class UserService {
     return this.users;
   }
 
+  updateUser(user: User){
+
+    for (let i = 0; i < this.users.length; ++i) {
+      if (this.users[i].id === user.id) {
+        this.users.splice(i, 1, user);
+        this.toastr.success("succesfully updated!");
+      }
+    }
+  
+  }
 
 }

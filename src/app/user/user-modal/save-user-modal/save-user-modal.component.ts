@@ -28,7 +28,7 @@ export class SaveUserModalComponent implements OnInit {
     if (this.naay_user) {
       this.id = this.naay_user.id;
       this.fname = this.naay_user.firstname;
-      this.lname = this.naay_user.description;
+      this.lname = this.naay_user.lastname;
       this.occu = this.naay_user.occupation;
       this.profile = this.naay_user.profilepic;
       console.log(this.naay_user.id);
@@ -39,12 +39,13 @@ export class SaveUserModalComponent implements OnInit {
     
     if(this.naay_user){
       user.id = this.naay_user.id;
-      this.user_service.deleteUser(user.id)
+      this.user_service.updateUser(user);
     }else{
       user.id = this.user_service.getUser().length + 1;
       user.profilepic = null;
+      this.user_service.saveUser(user);
     }
-    this.user_service.saveUser(user);
+   
     this.closeModal();
     
   }

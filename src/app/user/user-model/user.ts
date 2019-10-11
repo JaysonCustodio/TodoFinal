@@ -2,7 +2,7 @@ export interface User {
 
     id: number;
     firstname: string;
-    description: string;
+    lastname: string;
     occupation: string;
     profilepic: string;
 

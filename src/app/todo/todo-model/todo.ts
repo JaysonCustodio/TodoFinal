@@ -5,7 +5,7 @@ export interface Todo {
 
     id: number;
     name: string;
-    description: string;
+    lastname: string;
     status: Status;
     owner: User;
 

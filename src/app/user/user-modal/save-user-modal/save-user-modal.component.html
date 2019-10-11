@@ -1,4 +1,4 @@
-<div class="modal-header bg-blue">
+<div class="modal-header bg-c-dg">
   <h4 class="modal-title" id="modal-basic-title">USER</h4>
 </div>
 <div class="modal-body">
@@ -14,12 +14,12 @@
       />
     </div>
     <div class="form-group">
-      <label for="description">description</label>
+      <label for="lastname">LASTNAME</label>
       <input
         type="text"
         class="form-control"
-        id="description"
-        name="description"
+        id="lastname"
+        name="lastname"
         [(ngModel)]="lname"
       />
     </div>
@@ -41,7 +41,7 @@
   </button>
   <button
     type="submit"
-    class="btn btn-primary"
+    class="btn bg-c-dg"
     (click)="submitUser(userForm.value)"
   >
     Submit
