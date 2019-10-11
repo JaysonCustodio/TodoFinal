@@ -4,7 +4,6 @@ import { UserService } from "src/app/user/user.service";
 import { TodoService } from "../../todo.service";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { Todo } from "../../todo-model/todo";
-import { Status } from '../../todo-model/status.enum';
 
 @Component({
   selector: "app-todo-save-modal",
@@ -15,7 +14,7 @@ export class TodoSaveModalComponent implements OnInit {
   constructor(
     private user_service: UserService,
     private todo_service: TodoService,
-    private act_modal: NgbActiveModal
+    private act_modal: NgbActiveModal,
   ) {}
 
   users: User[];
@@ -39,39 +38,38 @@ export class TodoSaveModalComponent implements OnInit {
     }
   }
 
+  closeModal() {
+    this.act_modal.close();
+  }
+
   getUsers() {
     this.users = this.user_service.getUser();
   }
-
   saveTodo(todo) {
-
-    var todo_id : number;
+    var todo_id: number;
     let todo_owner: User;
 
-
-    for(let i = 0; i < this.users.length; ++i){
-      if(this.users[i].id == todo.owner){
+    for (let i = 0; i < this.users.length; ++i) {
+      if (this.users[i].id == todo.owner) {
         todo_owner = this.users[i];
       }
-    } 
-    if(this.pinsa_todo){
+    }
+    if (this.pinsa_todo) {
       todo_id = this.pinsa_todo.id;
-      console.log('if');
-    }else{
+      console.log("if");
+    } else {
       todo_id = this.todo_service.getTodos().length + 1;
-      console.log('ekse');
+      console.log("ekse");
     }
     this.todo_service.deleteTodos(todo_id);
-    
-    this.todo_service.saveTodo(
-      {
-        id: todo_id,
-        name: todo.name,
-        description: todo.description,
-        status: todo.status,
-        owner: todo_owner
-      }
 
-    );
+    this.todo_service.saveTodo({
+      id: todo_id,
+      name: todo.name,
+      description: todo.description,
+      status: todo.status,
+      owner: todo_owner
+    });
+    this.act_modal.close();
   }
 }

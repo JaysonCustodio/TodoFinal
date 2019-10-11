@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/ngx-toastr/toastr.css";
 .ml-75{
     width: 150px;
     margin-left: 75%
@@ -16,7 +19,9 @@ button{
     background-color: #55635a;
     color: #cbd1cd;
 }
-.page{
-    text-align: center;
+
+.bg-blue{
+    background-color: #08639c;
+    color: white;
 }
-@import "../node_modules/bootstrap/dist/css/bootstrap.css"
+

@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { User } from '../user/user-model/user';
 import { Todo } from './todo-model/todo';
 import { Status } from './todo-model/status.enum';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
-  constructor() { }
+  constructor(
+    private toast_service: ToastrService
+  ) { }
 
 
   users: User[];
@@ -104,11 +107,10 @@ export class TodoService {
   }
 
   deleteTodos(id) {
-    console.log('wew')
     for (let i = 0; i < this.todoss.length; ++i) {
       if (this.todoss[i].id === id) {
         this.todoss.splice(i, 1);
-        console.log('wow')
+        this.toast_service.success("succesfully deleted!");
       }
     }
   }
@@ -116,6 +118,7 @@ export class TodoService {
   saveTodo(todo: Todo){
 
     this.todoss.push(todo);
+    this.toast_service.success("succesfully save","submitted!");
 
   }
 

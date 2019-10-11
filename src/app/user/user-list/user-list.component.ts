@@ -21,6 +21,8 @@ export class UserListComponent implements OnInit {
     this.loaduser();
   }
 
+  
+
   loaduser() {
     this.users = this.user_service.getUser();
   }

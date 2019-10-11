@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from './user-model/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
 
 
@@ -98,6 +99,7 @@ export class UserService {
     for (let i = 0; i < this.users.length; ++i) {
       if (this.users[i].id === id) {
         this.users.splice(i, 1);
+        this.toastr.success("succesfully deleted!");
       }
     }
   }
@@ -105,6 +107,7 @@ export class UserService {
 
   saveUser(user: User): User[] {
     this.users.push(user);
+    this.toastr.success("succesfully save","submitted!");
     return this.users;
   }
 

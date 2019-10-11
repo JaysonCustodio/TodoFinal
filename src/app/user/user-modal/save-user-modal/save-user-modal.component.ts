@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "../../user.service";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { User } from "../../user-model/user";
-import { SourceListMap } from "source-list-map";
 
 @Component({
   selector: "app-save-user-modal",
@@ -13,6 +12,7 @@ export class SaveUserModalComponent implements OnInit {
   constructor(
     private user_service: UserService,
     private act_modal: NgbActiveModal
+
   ) {}
 
   @Input()
@@ -46,6 +46,7 @@ export class SaveUserModalComponent implements OnInit {
     }
     this.user_service.saveUser(user);
     this.closeModal();
+    
   }
 
   closeModal() {
