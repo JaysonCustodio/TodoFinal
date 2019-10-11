@@ -1,0 +1,59 @@
+<div class="container">
+  <table class="table table-dark table-hover" id="todo">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>STATUS</th>
+        <th>OWNER</th>
+        <th>
+          ACTIONS
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos | slice: (page - 1) * pageSize:(page - 1) * pageSize + pageSize">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.name }}</td>
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.status }}</td>
+        <td>{{ todo.owner.id }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn bg-c-dg"
+            (click)="openSaveTodoModal(todo)"
+          >
+            update
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="openDeleteTodoModal(todo)"
+          >
+            delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <div>
+            <button
+            type="button"
+            class="btn btn-dark ml-75"
+            (click)="openSaveTodoModal()"
+          >
+            add
+          </button>
+    </div>
+    <div>
+            <ngb-pagination
+            [collectionSize]="todos.length"
+            [(page)]="page"
+            [pageSize]="pageSize"
+          ></ngb-pagination>
+    </div>
+  </div>
+</div>

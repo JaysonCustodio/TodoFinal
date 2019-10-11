@@ -1,0 +1,29 @@
+<div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">PROFILE</h4>
+      </div>
+      <div class="modal-body procon">
+        <div class="img-con align">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoe-8WtmUA2umfowsO5-7XLVPPyBWnSGPaaPE-G8hikytWCJv6&s"
+            alt=""
+          />
+        </div>
+        <div class="info-con align">
+          <form #userForm="ngForm">
+            <div class="form-group">
+              <label for="">NAME</label>
+              <h5>{{ user.firstname }} {{ user.description }}</h5>
+            </div>
+            <div class="form-group">
+              <label for="">OCCUPATION</label>
+              <h5>{{ user.occupation }}</h5>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)="modalclose()">
+          x
+        </button>
+      </div>
+      

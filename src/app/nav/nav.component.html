@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/todos">TODOLIST</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/users">USERLIST</a>
+      </li>
+    </ul>
+    <input type="text" class="form-control form-control-sm" placeholder="search by id..." id="userInput" (keyup)="filterFunction()"/>
+  </nav>

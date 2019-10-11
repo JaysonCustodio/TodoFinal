@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.ml-75{
+    width: 150px;
+    margin-left: 75%
+}
+
+button{
+    width: 80px;
+    height: 35px;
+    font-size: 2px;
+    padding: 0;
+    margin: 1px;
+}
+
+.bg-c-dg{
+    background-color: #55635a;
+    color: #cbd1cd;
+}
+.page{
+    text-align: center;
+}
+@import "../node_modules/bootstrap/dist/css/bootstrap.css"

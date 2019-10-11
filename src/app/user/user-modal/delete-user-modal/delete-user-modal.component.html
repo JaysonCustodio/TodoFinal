@@ -1,0 +1,33 @@
+<div class="modal-header">
+        <h4 class="modal-title" id="modal-title">User deletion</h4>
+      
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong
+            >Are you sure you want to delete this user</strong
+          >
+        </p>
+        <p>
+          All information associated to this user profile will be permanently deleted.
+          <span class="text-danger">This operation can not be undone.</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="closeModal()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          ngbAutofocus
+          class="btn btn-danger"
+          (click)="delete()"
+        >
+          Ok
+        </button>
+      </div>
+      
